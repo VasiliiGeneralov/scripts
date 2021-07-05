@@ -6,6 +6,7 @@ DIRS="\
   $HOME/tmux\
   $HOME/tmux-bash-completion\
   $HOME/ripgrep\
+  $HOME/conan-bashcompletion\
 "
 
 for DIR in $DIRS
