@@ -7,3 +7,4 @@ unset CXX && export CXX=$(which clang++-12) && echo $CXX
 sudo rm -rf build .deps
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
+git log --oneline -1; nvim --version | head -n 1
