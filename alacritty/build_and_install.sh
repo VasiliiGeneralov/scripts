@@ -22,3 +22,5 @@ sudo desktop-file-install extra/linux/Alacritty.desktop
 sudo update-desktop-database
 sudo mkdir -p /usr/local/share/man/man1
 gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
+git log --oneline -1
+alacritty --version
