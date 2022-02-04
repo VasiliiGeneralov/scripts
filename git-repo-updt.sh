@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-DIRs="\
-  ${HOME}/alacritty\
-  ${HOME}/neovim\
-  ${HOME}/tmux\
-  ${HOME}/tmux-bash-completion\
-  ${HOME}/ripgrep\
-  ${HOME}/conan-bashcompletion\
-  ${HOME}/exa\
-"
+DIRs=(\
+  "${HOME}/alacritty"\
+  "${HOME}/neovim"\
+  "${HOME}/tmux"\
+  "${HOME}/tmux-bash-completion"\
+  "${HOME}/ripgrep"\
+  "${HOME}/conan-bashcompletion"\
+  "${HOME}/exa"\
+)
 
-for DIR in ${DIRs}
+for DIR in "${DIRs[@]}"
 do
   if [ -d "${DIR}" ]; then
     pushd "${DIR}" &> /dev/null || exit 1
