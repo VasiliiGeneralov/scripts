@@ -1,22 +1,23 @@
 #!/usr/bin/env bash
 
-DIRS="\
-  $HOME/alacritty\
-  $HOME/neovim\
-  $HOME/tmux\
-  $HOME/tmux-bash-completion\
-  $HOME/ripgrep\
-  $HOME/conan-bashcompletion\
+DIRs="\
+  ${HOME}/alacritty\
+  ${HOME}/neovim\
+  ${HOME}/tmux\
+  ${HOME}/tmux-bash-completion\
+  ${HOME}/ripgrep\
+  ${HOME}/conan-bashcompletion\
+  ${HOME}/exa\
 "
 
-for DIR in $DIRS
+for DIR in ${DIRs}
 do
-  if [ -d "$DIR" ]; then
-    pushd $DIR &> /dev/null
-    git fetch $(git remote show | head -n 1) &> /dev/null
-    echo "$DIR:" | sed -e 's/^.*\///'
+  if [ -d "${DIR}" ]; then
+    pushd "${DIR}" &> /dev/null || exit 1
+    git pull --rebase --recurse-submodules &> /dev/null
+    echo "${DIR##*/}:"
     git status | head -n 2
     echo "-------------------------"
-    popd &> /dev/null
+    popd &> /dev/null || exit 2
   fi
 done
