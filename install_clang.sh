@@ -1,25 +1,32 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+
+if [[ -z "${1}" ]]; then
+  echo "Please specify clang version! e.g. 11, 12, etc."
+  exit 1
+fi
+
 apt install\
- libllvm-12-ocaml-dev\
- libllvm12\
- llvm-12\
- llvm-12-dev\
- llvm-12-doc\
- llvm-12-examples\
- llvm-12-runtime\
- clang-12\
- clang-tools-12\
- clang-12-doc\
- libclang-common-12-dev\
- libclang-12-dev\
- libclang1-12\
- clang-format-12\
- clang-tidy-12\
- python3-clang-12\
- clangd-12\
- libfuzzer-12-dev\
- lldb-12\
- lld-12\
- libc++-12-dev libc++abi-12-dev\
- libomp-12-dev\
- libclc-12-dev
+ "libllvm-${1}-ocaml-dev"\
+ "libllvm${1}"\
+ "llvm-${1}"\
+ "llvm-${1}-dev"\
+ "llvm-${1}-doc"\
+ "llvm-${1}-examples"\
+ "llvm-${1}-runtime"\
+ "clang-${1}"\
+ "clang-tools-${1}"\
+ "clang-${1}-doc"\
+ "libclang-common-${1}-dev"\
+ "libclang-${1}-dev"\
+ "libclang1-${1}"\
+ "clang-format-${1}"\
+ "clang-tidy-${1}"\
+ "python3-clang-${1}"\
+ "clangd-${1}"\
+ "libfuzzer-${1}-dev"\
+ "lldb-${1}"\
+ "lld-${1}"\
+ "libc++-${1}-dev"\
+ "libc++abi-${1}-dev"\
+ "libomp-${1}-dev"\
+ "libclc-${1}-dev"
