@@ -14,7 +14,7 @@ for DIR in "${DIRs[@]}"
 do
   if [ -d "${DIR}" ]; then
     pushd "${DIR}" &> /dev/null || exit 1
-    git pull --rebase --recurse-submodules &> /dev/null
+    git fetch &> /dev/null
     echo "${DIR##*/}:"
     git status | head -n 2
     echo "-------------------------"
