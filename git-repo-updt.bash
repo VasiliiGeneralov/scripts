@@ -6,8 +6,6 @@ DIRs=(\
   "${HOME}/tmux"\
   "${HOME}/tmux-bash-completion"\
   "${HOME}/ripgrep"\
-  "${HOME}/conan-bashcompletion"\
-  "${HOME}/exa"\
 )
 
 for DIR in "${DIRs[@]}"
