@@ -10,7 +10,7 @@ DIRs=(\
 
 for DIR in "${DIRs[@]}"
 do
-  if [ -d "${DIR}" ]; then
+  if [[ -d "${DIR}" ]]; then
     pushd "${DIR}" &> /dev/null || exit 1
     git fetch &> /dev/null
     echo "${DIR##*/}:"
