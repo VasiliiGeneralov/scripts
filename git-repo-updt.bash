@@ -14,7 +14,7 @@ do
     pushd "${DIR}" &> /dev/null || exit 1
     git fetch &> /dev/null
     echo "${DIR##*/}:"
-    git status | head -n 2
+    git status -u no
     tags=$(git tag -l '[0-9]*.[0-9]*' 'v[0-9]*.[0-9]*')
     if [[ -n "${tags}" ]]; then
       printf "Available tags:\n"
