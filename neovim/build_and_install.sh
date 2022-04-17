@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-git pull --rebase --recurse-submodules
-make CMAKE_BUILD_TYPE=Release && make CMAKE_INSTALL_PREFIX="${HOME}/.local" install
