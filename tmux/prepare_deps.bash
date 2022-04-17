@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-git pull --rebase --recurse-submodules
-sudo apt install\
+apt install\
   libevent-dev\
   ncurses-dev\
   build-essential\
@@ -9,6 +8,3 @@ sudo apt install\
   pkg-config\
   autoconf\
   automake
-sh autogen.sh
-./configure
-make && sudo make install
