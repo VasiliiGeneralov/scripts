@@ -2,6 +2,7 @@
 
 from argparse import ArgumentParser, Namespace
 from _config_factory._config import Config
+from _config_factory import _dwm as dwm
 from _config_factory import _keyboard_layout as kb
 from collections.abc import Callable
 from typing import Dict, List
@@ -25,15 +26,29 @@ def parse_args():
             action='store_true'
             )
 
+    xorg_args.add_argument(
+            '-d',
+            '--dwm',
+            help='Print ~/.xinitrc considering the dwm use',
+            action='store_true'
+            )
+
     return ap.parse_args()
 
 
 def collect_config_ctors(args: Namespace) -> List[Callable[[], Config]]:
     config_ctors: List[Callable[[], Config]] = []
 
-    for arg in vars(args):
-        if 'keyboard_layout' == arg:
+    for k, v in vars(args).items():
+        if not v:
+            continue
+
+        if 'keyboard_layout' == k:
             config_ctors.append(kb.get)
+            continue
+
+        if 'dwm' == k:
+            config_ctors.append(dwm.get)
             continue
 
     return config_ctors
